@@ -2,26 +2,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* ============ ESTILO GLOBAL ============ */
+html {
+    scroll-behavior: smooth; /* Adiciona rolagem suave a toda a página */
+}
+
 * {
-    box-sizing: border-box;
+ box-sizing: border-box;
 }
 
 html, body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    overflow-x: hidden;
+ margin: 0;
+ padding: 0;
+ font-family: Arial, Helvetica, sans-serif;
+ overflow-x: hidden;
 }
 
 img, iframe, video {
-    max-width: 100%;
-    display: block;
+ max-width: 100%;
+ display: block;
 }
 
 /* ============ CABEÇALHO ============ */
 header {
     color: #fff;
-    background: #2f8f4973;
+    background: #2f8f4996;
     backdrop-filter: blur(12px) saturate(150%);
     -webkit-backdrop-filter: blur(12px) saturate(150%);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -37,28 +41,92 @@ header {
 #navbar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+    align-items: flex-end; /* A solução para alinhar tudo na parte de baixo */
+    height: 80px;
+    padding: 0 20px;
 }
 
 #navbar h1 {
     font-family: 'Montserrat', sans-serif;
     font-size: 24px;
-    padding: 15px;
     margin: 0;
 }
 
-#navbar a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 14px;
-    padding: 10px;
-    margin-right: 5px;
+.nav-container {
+    display: flex;
+    align-items: flex-end;
 }
 
-#navbar a:hover {
-    text-decoration: underline;
+.menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1001;
 }
+
+#menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    right: 0;
+    left: 0;
+    padding: 10px 0;
+    z-index: 1000;
+    background: #2f8f49bb;
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.144);
+}
+
+#menu.show {
+    display: flex;
+}
+
+#menu li {
+    margin: 10px 0;
+    text-align: center;
+    list-style-type: none;
+}
+
+#menu a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 12px;
+    font-size: 1.1rem;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    #navbar h1 {
+        font-size: 28px;
+    }
+    .menu-toggle {
+        display: none;
+    }
+
+    #menu {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        background-color: transparent;
+        backdrop-filter: none;
+        box-shadow: none;
+        border-bottom: none;
+        padding: 0;
+    }
+
+    #menu a {
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+}
+
 
 /* ============ SESSÕES ============ */
 section {
@@ -88,6 +156,8 @@ section p {
 
 section ul {
     list-style-type: none;
+    line-height: 1.6;
+    font-size: 18px;
     padding: 0;
     margin-bottom: 20px;
 }
@@ -103,21 +173,20 @@ section ul {
 }
 
 /* ============ BOTÕES ============ */
-
 .blue {
- background-color: #1B3B4A;
- color: #fff;
- padding: 14px 22px;
- font-size: 18px;
- border: none;
- border-radius: 6px;
- cursor: pointer;
- text-decoration: none;
+    background-color: #1B3B4A;
+    color: #fff;
+    padding: 14px 22px;
+    font-size: 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .blue:hover {
- background-color: #22495c;
- text-decoration: underline;
+    background-color: #22495c;
+    text-decoration: underline;
 }
 
 /* ============ SEÇÃO HOME ============ */
@@ -209,21 +278,6 @@ textarea:focus {
     outline: none;
 }
 
-button {
-    background-color: #1B3B4A;
-    color: #fff;
-    padding: 14px 22px;
-    font-size: 18px;
-    font-weight: bold;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #22495c;
-}
 
 /* ============ RODAPÉ ============ */
 footer {
@@ -250,23 +304,26 @@ footer a:hover {
 }
 
 /* ============ RESPONSIVIDADE (MOBILE-FIRST) ============ */
-
 /* Estilos para telas maiores ou iguais a 480px */
 @media (min-width: 480px) {
     #navbar h1 {
         font-size: 28px;
     }
+
     #navbar a {
         font-size: 16px;
         padding: 10px 15px;
     }
+
     section h1 {
         font-size: 32px;
     }
+
     section h2 {
         font-size: 28px;
     }
 }
+
 
 /* Estilos para telas maiores ou iguais a 768px */
 @media (min-width: 768px) {
@@ -276,11 +333,13 @@ footer a:hover {
     }
 }
 
+
 /* Estilos para telas maiores ou iguais a 1024px */
 @media (min-width: 1024px) {
     #navbar h1 {
         font-size: 32px;
     }
+
     #navbar a {
         font-size: 18px;
     }
