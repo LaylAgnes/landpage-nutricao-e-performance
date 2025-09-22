@@ -41,10 +41,9 @@ header {
 #navbar {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end; /* A solução para alinhar tudo na parte de baixo */
+    align-items: center; 
     height: 80px;
     padding: 0 20px;
-    padding-bottom: 20px;
 }
 
 #navbar h1 {
