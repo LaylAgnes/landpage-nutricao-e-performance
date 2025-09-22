@@ -44,6 +44,7 @@ header {
     align-items: flex-end; /* A solução para alinhar tudo na parte de baixo */
     height: 80px;
     padding: 0 20px;
+    padding-bottom: 20px;
 }
 
 #navbar h1 {
