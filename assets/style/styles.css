@@ -1,0 +1,288 @@
+/* ============ IMPORTAÇÃO DE FONTES ============ */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* ============ ESTILO GLOBAL ============ */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #9c3535;
+    overflow-x: hidden;
+}
+
+img, iframe, video {
+    max-width: 100%;
+    display: block;
+}
+
+/* ============ CABEÇALHO ============ */
+header {
+    color: #fff;
+    background: #2f8f4973;
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#navbar h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    padding: 15px;
+    margin: 0;
+}
+
+#navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 10px;
+    margin-right: 5px;
+}
+
+#navbar a:hover {
+    text-decoration: underline;
+}
+
+/* ============ SESSÕES ============ */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+section h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    margin-top: 110px;
+    margin-bottom: 20px;
+}
+
+section h2 {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 20px;
+}
+
+section p {
+    line-height: 1.6;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+section ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.green {
+    background-color: #2F8F49;
+    color: #fff;
+}
+
+.white {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+/* ============ BOTÕES ============ */
+
+.blue {
+ background-color: #1B3B4A;
+ color: #fff;
+ padding: 14px 22px;
+ font-size: 18px;
+ border: none;
+ border-radius: 6px;
+ cursor: pointer;
+ text-decoration: none;
+}
+
+.blue:hover {
+ background-color: #22495c;
+ text-decoration: underline;
+}
+
+/* ============ SEÇÃO HOME ============ */
+#home {
+    background-image: url('../img/background-home.jpg'); /* Caminho para sua imagem */
+    background-size: cover; /* Faz a imagem cobrir toda a seção */
+    background-position: center; /* Centraliza a imagem */
+    position: relative; /* Essencial para o overlay funcionar */
+    padding: 100px 20px; /* Ajuste o padding para dar mais espaço */
+    color: #fff; /* Garante que o texto fique branco sobre o fundo escuro */
+}
+
+#home::before {
+    content: ""; /* Essencial para pseudo-elementos */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(47, 143, 73, 0.6); /* Verde (#2F8F49) com 60% de opacidade */
+    z-index: 1; /* Garante que o overlay fique por cima da imagem, mas abaixo do texto */
+}
+
+#home h1, #home p, #home .blue {
+    position: relative; /* Garante que o texto e o botão fiquem acima do overlay */
+    z-index: 2;
+}
+
+/* ============ SEÇÃO SOBRE ============ */
+.flex-container-about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+.flex-container-about img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ============ FORMULÁRIO ============ */
+.container {
+    max-width: 600px;
+    background-color: #2f8f49;
+    margin: 0 auto 80px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    color: #fff;
+}
+
+.container h2, .container p {
+    color: #fff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+label {
+    color: #fff;
+    margin-bottom: 8px;
+    align-self: flex-start;
+}
+
+input,
+textarea {
+    background-color: #f2f2f2;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #2F8F49;
+    box-shadow: 0 0 0 3px rgba(47, 143, 73, 0.3);
+    outline: none;
+}
+
+button {
+    background-color: #1B3B4A;
+    color: #fff;
+    padding: 14px 22px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #22495c;
+}
+
+/* ============ RODAPÉ ============ */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #2F8F49;
+    color: #fff;
+    width: 100%;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.developer {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #fff;
+}
+
+/* ============ RESPONSIVIDADE (MOBILE-FIRST) ============ */
+
+/* Estilos para telas maiores ou iguais a 480px */
+@media (min-width: 480px) {
+    #navbar h1 {
+        font-size: 28px;
+    }
+    #navbar a {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+    section h1 {
+        font-size: 32px;
+    }
+    section h2 {
+        font-size: 28px;
+    }
+}
+
+/* Estilos para telas maiores ou iguais a 768px */
+@media (min-width: 768px) {
+    .flex-container-about {
+        flex-direction: row-reverse;
+        text-align: left;
+    }
+}
+
+/* Estilos para telas maiores ou iguais a 1024px */
+@media (min-width: 1024px) {
+    #navbar h1 {
+        font-size: 32px;
+    }
+    #navbar a {
+        font-size: 18px;
+    }
+}
